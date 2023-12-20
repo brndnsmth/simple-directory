@@ -21,4 +21,4 @@ Fresh database:
     (.venv) -> python3 import-people.py
     (.venv) -> python3 manage.py runserver
 
-Credit to Tom Dekan (https://twitter.com/tomdekan)
+Credit/inspiration: Tom Dekan (https://twitter.com/tomdekan)
