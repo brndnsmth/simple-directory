@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>People directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
+</head>
+<body id="container">
+
+<form>
+    {% csrf_token %}
+    <input class="form-control" type="search"
+           name="search" placeholder="Begin Typing To Search Users..."
+           hx-get="/search/results/"
+           hx-trigger="keyup changed, search"
+           hx-target="#search-results"
+           hx-indicator=".htmx-indicator">
+</form>
+
+<div id="search-results">
+    {% include "search_results.html" %}
+</div>
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+    #container {
+        max-width: 800px;
+        margin: auto;
+        margin-top: 20px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 5px;
+    }
+    h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .htmx-indicator {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    form {
+        position: relative;
+    }
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    #search-results {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .highlight {  
+        background-color: #46ffb3;
+        {% comment %} padding: 3px; {% endcomment %}
+        border-radius: 1px;
+    }
+</style>
+
+</body>
+</html>
