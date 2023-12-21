@@ -1,6 +1,6 @@
 ## Django / HTMX - Simple Directory
 
-Use Python >= 3.11
+Python ≥ 3.8 is required.
 
 Existing database:
 
